@@ -1,0 +1,166 @@
+extends template
+
+block menu
+    +createMenu(1)
+
+mixin my-option
+    select
+        option(value='0') No
+        option(value='1') Name
+        option(value='2') Genres
+        option(value='3') Main Story
+        option(value='4') Main + Sides
+        option(value='5') Completionist
+
+mixin table-create(a, b, c, d, e)
+    tr
+        td=a
+        td=b
+        td=c
+        td=d
+        td=e
+
+block content
+    details
+        summary Display Settings Block:
+        .main-block
+            .block-01
+                .table
+                    .title-1-1
+                        p График
+                    .left-edge-1
+                        p.title-1 Значениe по оси OX
+                        p Main Story
+                            input(type='radio', name='ox', value='0')
+                        p Main + Sides
+                            input(type='radio', name='ox', value='1')
+                        p Completionist
+                            input(type='radio', name='ox', value='2')
+                    .right-edge-1
+                        p.title-1 Результат
+                        p Максимальная высота
+                            input(type='checkbox', name='result', value='0')
+                        p Минимальная высота
+                            input(type='checkbox', name='result', value='1')
+                        p Количество сооружений
+                            input(type='checkbox', name='result', value='2')
+                    button Построить
+            .block-02
+                .table-2-2
+                    .table
+                        .title-1-3
+                            p Фильтр
+                        .left-edge-1
+                            p Name:
+                            p Genre:
+                            p Main story: (from):
+                            p Main story: (to):
+                            p Main + Sides: (from):
+                            p Main + Sides: (to):
+                            p Completionist: (from):
+                            p Completionist: (to):
+                        .right-edge-1
+                            p
+                                input#structure(type='text', placeholder='Enter')
+                            p
+                                input#category(type='text', placeholder='Enter')
+                            p
+                                input#mainFrom(type='text', placeholder='Enter')
+                            p
+                                input#mainTo(type='text', placeholder='Enter')
+                            p
+                                input#sidesFrom(type='text', placeholder='Enter')
+                            p
+                                input#sidesTo(type='text', placeholder='Enter')
+                            p
+                                input#completeFrom(type='text', placeholder='Enter')
+                            p
+                                input#completeTo(type='text', placeholder='Enter')
+                        button Найти
+            .block-03
+                .table-2
+                    .title-1-2
+                        p Сортировка
+                    .left-edge-2
+                        p Первый уровень:
+                        p Второй уровень:
+                        p Третий уровень:
+                    .center-edge-2
+                        p
+                            +my-option
+                        p
+                            +my-option
+                        p
+                            +my-option
+                    .right-edge-2
+                        p.no-ind по убыванию?
+                            input(type='checkbox', name='sortFirst')
+                        p.no-ind по убыванию?
+                            input(type='checkbox', name='descSecond')
+                        p.no-ind по убыванию?
+                            input(type='checkbox', name='descThird')
+                    button Сортировать
+
+    .my-block-1
+    .block-table-1
+        table
+            tr.title
+                td Name
+                td Genres
+                td Main Story
+                td Main + Sides
+                td Completionist
+            +table-create('Elden Ring', 'Third-Person, Action, Open World, Role-Playing', '54', '98,5', '132')
+            +table-create('Final Fantasy IV', 'Role-Playing', '31', '39', '62')
+            +table-create('Final Fantasy III', 'Turn-Based, Role-Playing', '31', '34', '77')
+            +table-create('Final Fantasy VII', 'Role-Playing', '37', '51', '83')
+            +table-create('Final Fantasy VIII', 'Role-Playing', '40', '54', '80')
+            +table-create('Final Fantasy XV', 'Third-Person, Action, Open World, Role-Playing', '28', '53', '95')
+            +table-create('Fire Emblem: Awakening', 'Turn-Based, Role-Playing, Strategy/Tactical', '31', '49', '107')
+            +table-create('Fire Emblem: Fates - Birthright', 'Top-Down, Turn-Based, Role-Playing', '27', '43', '85')
+            +table-create('Fire Emblem Echoes: Shadows of Valentia', 'Role-Playing, Strategy', '36', '47', '67')
+            +table-create('Fire Emblem: Fates - Conquest', 'Top-Down, Turn-Based, Role-Playing, Tactical', '27', '43', '85')
+            +table-create('The Legend of Zelda', 'Top-Down, Action, Adventure, Open World', '36', '47', '67')
+            +table-create('The Legend of Zelda: Breath of the Wild', 'Third-Person, Action, Adventure, Open World', '27', '45', '75')
+            +table-create('The Legend of Zelda: Skyward Sword HD', 'Third-Person, Action, Adventure', '31', '39', '42')
+            +table-create('The Legend of Zelda: Ocarina of Time 3D', 'Action, Adventure, Role-Playing', '25', '32', '38')
+            +table-create('The Legend of Zelda: A Link to the Past', 'Top-Down, Action, Adventure, Open World', '15', '17', '18')
+            +table-create('The Legend of Zelda: A Link Between Worlds', 'Action, Adventure', '16', '20', '23')
+            +table-create('The Legend of Zelda: Twilight Princess', 'Third-Person, Action, Adventure, Puzzle', '38', '46', '56')
+            +table-create('The Legend of Zelda: Majoras Mask 3D', 'Third-Person, Action, Adventure', '25', '33', '38')
+            +table-create('The Legend of Zelda: The Minish Cap', 'Top-Down', '16', '19', '27')
+            +table-create('The Legend of Zelda: Spirit Tracks', 'Action-adventure', '20', '26', '32')
+            +table-create('Saints Row: The Third', 'Third-Person, Action, Adventure, Open World, Shooter', '15', '27', '45')
+            +table-create('Saints Row IV', 'Third-Person, Action, Adventure, Open World, Shooter', '15', '25', '37')
+            +table-create('Saints Row: Gat out of Hell', 'Action, Adventure', '5', '8', '20')
+            +table-create('Call of Duty', 'First-Person, Action, Shooter', '7', '9', '10')
+            +table-create('Call of Duty 4: Modern Warfare', 'First-Person, Action, Shooter', '7', '10', '16')
+            +table-create('Call of Duty: Modern Warfare 2', 'First-Person, Action, Shooter', '7', '10', '31')
+            +table-create('Call of Duty: WWII', 'First-Person, Action, Shooter', '7', '9', '20')
+            +table-create('Call of Duty: Black Ops', 'First-Person, Action, Shooter', '7', '13', '17')
+            +table-create('Call of Duty: Black Ops III', 'First-Person, Action, Shooter', '9', '14', '74')
+            +table-create('Call of Duty: Modern Warfare 3', 'First-Person, Action, Shooter', '6', '10', '39')
+            +table-create('Call of Duty: Black Ops II', 'First-Person, Action, Shooter', '7', '10', '29')
+            +table-create('Call of Duty: World at War', 'First-Person, Action, Shooter', '8', '12', '25')
+            +table-create('Call of Duty: Ghosts', 'First-Person, Action, Shooter', '6', '9', '12')
+            +table-create('Call of Duty: Advanced Warfare', 'First-Person, Action, Shooter', '7', '10', '17')
+            +table-create('Call of Duty 2', 'First-Person, Action, Shooter', '9', '10', '11')
+            +table-create('Call of Duty: Black Ops Cold War', 'First-Person, Action, Shooter', '6', '7', '10')
+            +table-create('Call of Duty: United Offensive', 'First-Person, Action, Shooter', '6', '6', '8')
+            +table-create('Call of Duty: Black Ops: Declassified', 'First-Person, Action, Shooter', '2', '4', '9')
+            +table-create('Tales of Berseria', 'Role-Playing', '45', '68', '161')
+            +table-create('Beyond the Labyrinth', 'Third-Person, Turn-Based, Adventure, Fighting, Open World, Role-Playing, Strategy', '32', '39', '45')
+            +table-create('Super Mario Odyssey', 'Third-Person, Action, Platform', '13', '27', '62')
+            +table-create('Super Mario 3D World + Bowsers Fury', 'Third-Person, Action, Platform', '10', '16', '29')
+            +table-create('Super Mario 3D Land', 'Third-Person, Action, Platform', '7', '13', '23')
+            +table-create('New Super Mario Bros. 2', 'Platform', '6', '12', '20')
+            +table-create('Halo Infinite', 'First-Person, Open World, Shooter', '11', '19', '26')
+            +table-create('Halo: Reach', 'First-Person, Action, Shooter', '8', '13', '51')
+            +table-create('Halo: Combat Evolved', 'First-Person, Shooter', '10', '11', '14')
+            +table-create('Halo 4', 'First-Person, Action, Shooter', '8', '11', '28')
+            +table-create('Far Cry 4', 'First-Person, Open World, Shooter', '18', '31', '46')
+            +table-create('Xenoblade Chronicles: Definitive Edition', 'Third-Person, Action, Role-Playing', '51', '78', '135')
+            +table-create('Xenoblade Chronicles 2', 'Third-Person, Action, Role-Playing', '64', '106', '254')
+            +table-create('Xenoblade Chronicles 2: Torna ~ The Golden Country', 'Third-Person, Action, Role-Playing', '18', '25', '38')
+            +table-create('Xenoblade Chronicles X', 'Third-Person, Action, Open World, Role-Playing', '68', '108', '274')
+            +table-create('Xenoblade Chronicles: Future Connected', 'Third-Person, Action, Role-Playing', '8', '11', '14')

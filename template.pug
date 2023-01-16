@@ -1,0 +1,37 @@
+mixin a(href, name)
+    a(class!=attributes.class href=href)= name
+
+
+mixin block-content-2(myImg, t1, t2)
+    hr
+    .block-title
+        if(myImg == '1')
+            img(alt='Нет картинки')
+        else
+            img(src = myImg)
+        p=t1
+        .main-title
+            p=t2
+
+mixin createMenu (idPage)
+    if idPage == 0
+        +a('main.html', 'Main')(class = "selected")
+        +a('table.html', 'Table')
+    if idPage == 1
+        +a('main.html', 'CSS')
+        +a('table.html', 'Table')(class = "selected")
+    if idPage == 2
+        +a('main.html', 'CSS')
+        +a('table.html', 'Table')
+
+<!DOCTYPE html>
+html
+    head
+        include head
+    body
+        .menu
+            .nav
+                block menu
+        block content
+        .my-block-1
+        .page-footer
