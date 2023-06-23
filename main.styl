@@ -258,6 +258,11 @@ p.title-1
   display: grid
   grid-column: 2/3
 
+
+table
+  width: 80%
+  margin: 25px auto;
+
 @media (min-width 800px)
   details
     width 800px
@@ -265,19 +270,19 @@ p.title-1
 
 
 @media (min-width 1200px)
-  details, .main-block, .block-01, .block-02
+  details, .main-block, .block-01, .block-02, .block-03
 
   details, .block-table-1
-    width 1200px
+    width 80%
     margin auto
 
-  .table-2-2
-    height: 100px
+
 
   .main-block
     display: grid
     grid-template-columns repeat(2, 1fr)
     grid-template-rows repeat(2, 1fr)
+
   .block-01
     display: grid
     grid-column: 1/2
@@ -286,16 +291,18 @@ p.title-1
     display: grid
     grid-column: 2/3
     grid-row: 1/3
+  .block-03
+    display: grid
+    grid-column: 1/2
+    grid-row: 2/3
+
   .table, .table-2
-    width: 90%
+    width: auto
     margin: 20px auto
   summary
     font-size: large
 
 
-table
-  width: 80%
-  margin: 25px auto;
 
   td
     padding 4px 7px

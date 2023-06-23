@@ -4,7 +4,6 @@ block menu
     +createMenu(1)
 
 mixin my-option
-    select
         option(value='0') No
         option(value='1') Name
         option(value='2') Genres
@@ -87,19 +86,23 @@ block content
                         p Третий уровень:
                     .center-edge-2
                         p
-                            +my-option
+                            select(id="firstSort")
+                                +my-option
                         p
-                            +my-option
+                            select(id="secondSort")
+                                +my-option
                         p
-                            +my-option
+                            select(id="thirdSort")
+                                +my-option
                     .right-edge-2
                         p.no-ind по убыванию?
-                            input(type='checkbox', name='sortFirst')
+                            input(type='checkbox', name='descFirst')
                         p.no-ind по убыванию?
                             input(type='checkbox', name='descSecond')
                         p.no-ind по убыванию?
                             input(type='checkbox', name='descThird')
-                    button Сортировать
+                    button(value="sort" onclick="sortTable(this.form)")
+                        |Сортировать
 
     .my-block-1
     .block-table-1
