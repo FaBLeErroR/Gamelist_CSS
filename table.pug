@@ -4,6 +4,7 @@ block menu
     +createMenu(1)
 
 mixin my-option
+    select
         option(value='0') No
         option(value='1') Name
         option(value='2') Genres
@@ -19,8 +20,14 @@ mixin table-create(a, b, c, d, e)
         td=d
         td=e
 
+
+block footer
+    script(src="sort.js")
+    script(src="https://d3js.org/d3.v7.min.js")
+    script(src="diagramm.js")
+
 block content
-    details
+    details(open)
         summary Display Settings Block:
         .main-block
             .block-01
@@ -29,21 +36,24 @@ block content
                         p График
                     .left-edge-1
                         p.title-1 Значениe по оси OX
-                        p Main Story
-                            input(type='radio', name='ox', value='0')
-                        p Main + Sides
-                            input(type='radio', name='ox', value='1')
-                        p Completionist
-                            input(type='radio', name='ox', value='2')
+                        div
+                            input#inp2-1(type='radio', name='ox', value='имя', checked)
+                            p Name
+                        div
+                            input#inp2-2(type='radio', name='ox', value='жанр')
+                            p Genre
                     .right-edge-1
                         p.title-1 Результат
-                        p Максимальная высота
-                            input(type='checkbox', name='result', value='0')
-                        p Минимальная высота
-                            input(type='checkbox', name='result', value='1')
-                        p Количество сооружений
-                            input(type='checkbox', name='result', value='2')
-                    button Построить
+                        div
+                            input#in-1(type='radio', name='result', value='story', checked)
+                            p Main Story
+                        div
+                            input#in-2(type='radio', name='result', value='sides')
+                            p Main + Sides
+                        div
+                            input#in-3(type='radio', name='result', value='completionist')
+                            p Completionist
+                    button#butt-graf Построить
             .block-02
                 .table-2-2
                     .table
@@ -75,7 +85,7 @@ block content
                                 input#completeFrom(type='text', placeholder='Enter')
                             p
                                 input#completeTo(type='text', placeholder='Enter')
-                        button Найти
+                        button#butt-filter Найти
             .block-03
                 .table-2
                     .title-1-2
@@ -84,16 +94,13 @@ block content
                         p Первый уровень:
                         p Второй уровень:
                         p Третий уровень:
-                    .center-edge-2
-                        p
-                            select(id="firstSort")
-                                +my-option
-                        p
-                            select(id="secondSort")
-                                +my-option
-                        p
-                            select(id="thirdSort")
-                                +my-option
+                    .center-edge-2#sort-opt
+                        p.l1
+                            +my-option
+                        p.l2
+                            +my-option
+                        p.l3
+                            +my-option
                     .right-edge-2
                         p.no-ind по убыванию?
                             input(type='checkbox', name='descFirst')
@@ -101,12 +108,18 @@ block content
                             input(type='checkbox', name='descSecond')
                         p.no-ind по убыванию?
                             input(type='checkbox', name='descThird')
-                    button(value="sort" onclick="sortTable(this.form)")
-                        |Сортировать
+                    button#butt-sort Сортировать
+        div.block-graf
+            p График:
+            div#graf-container
+                div.curr-graff
 
-    .my-block-1
-    .block-table-1
-        table
+
+    #bad-news
+        p По запросу ничего не найдено
+
+    #table-container
+        table#my-table
             tr.title
                 td Name
                 td Genres

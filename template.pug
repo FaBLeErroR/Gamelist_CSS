@@ -18,16 +18,17 @@ mixin createMenu (idPage)
         +a('main.html', 'Main')(class = "selected")
         +a('table.html', 'Table')
     if idPage == 1
-        +a('main.html', 'CSS')
+        +a('main.html', 'Main')
         +a('table.html', 'Table')(class = "selected")
     if idPage == 2
-        +a('main.html', 'CSS')
+        +a('main.html', 'Main')
         +a('table.html', 'Table')
 
 <!DOCTYPE html>
 html
     head
         include head
+        block header
     body
         .menu
             .nav
@@ -35,3 +36,5 @@ html
         block content
         .my-block-1
         .page-footer
+    footer
+        block footer

@@ -1,15 +1,37 @@
 extends template
 
+block header
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css">
+    //<link rel="stylesheet" href="venobox/venobox.min.css" type="text/css" media="screen">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.10.0/js/lightgallery-all.min.js"></script>
 block menu
     +createMenu(2)
 
+block footer
+    <script src="gallery.js"></script>
+
+
+
 block content
-    .img-2
-        img(src='images/zelda1.jpg')
-        img(src='images/zelda2.jpg')
-        img(src='images/zelda3.jpg')
-        img(src='images/zelda4.jpg')
+    //div.img-2
+    //    a(class='venobox' herf='images/zelda1.jpg')
+    //        img(src='images/zelda1.jpg' alt="")
+    //    a(class='venobox' herf='images/zelda2.jpg')
+    //        img(src='images/zelda2.jpg' alt="")
+    //    a(class='venobox' herf='images/zelda3.jpg')
+    //        img(src='images/zelda3.jpg' alt="")
+    //    a(class='venobox' herf='images/zelda4.jpg')
+    //        img(src='images/zelda4.jpg' alt="")
+
+    div.img-2#gallery
+    script
+        include gallery.js
     .my-block-1
+
+
+
+
 
     img(src = 'images/BOTW.jpg' height="300" align="left")
     h2 The legend of zelda breath of the wild

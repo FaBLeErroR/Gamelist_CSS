@@ -56,6 +56,12 @@ h2()
 .h2
   h2()
 
+.img-2
+  img
+    margin 0px
+    //padding 0px
+
+
 .img-1
   img
     width auto
@@ -177,6 +183,13 @@ details
 
 .left-edge-1, .right-edge-1
   margin: 0px 10px
+  display: grid
+
+.left-edge-1
+  grid-column 1/2
+
+.right-edge-1
+  grid-column 2/3
 
 .left-edge-2, .right-edge-2, .center-edge-2
   margin: 0px 10px
@@ -257,7 +270,6 @@ p.title-1
 .right-edge-1
   display: grid
   grid-column: 2/3
-
 
 table
   width: 80%

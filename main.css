@@ -39,6 +39,9 @@ body {
 .h2 {
   font-size: 25px;
 }
+.img-2 img {
+  margin: 0px;
+}
 .img-1 img {
   width: auto;
   height: 150px;
@@ -167,6 +170,13 @@ details {
 .left-edge-1,
 .right-edge-1 {
   margin: 0px 10px;
+  display: grid;
+}
+.left-edge-1 {
+  grid-column: 1/2;
+}
+.right-edge-1 {
+  grid-column: 2/3;
 }
 .left-edge-2,
 .right-edge-2,
